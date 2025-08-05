@@ -59,4 +59,38 @@
   height: 239px;
   flex-shrink: 0;
   aspect-ratio: 241/75;
+  border-radius: 25px;
+}
+
+.fashion-image-container {
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.fashion-image {
+  width: 538px;
+  height: 955px;
+  flex-shrink: 0;
+  aspect-ratio: 40/71;
+  position: absolute;
+  top: 0px;
+}
+
+.fashion-image-left {
+  left: 50px;
+}
+
+.fashion-image-right {
+  right: 50px;
+}
+
+.homepage {
+  position: relative;
+  min-height: 100vh;
+}
+
+.homepage-content {
+  position: relative;
+  z-index: 2;
 }
