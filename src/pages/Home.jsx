@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../assets/logo.png';
+import logo from '../assets/loghome.png';
 import fashion1 from '../assets/fashion1.png';
 import fashion2 from '../assets/fashion2.png';
 
@@ -13,7 +13,10 @@ const Home = () => {
       <div className='homepage-content'>
         <div className='homepage-logo'>
           <img src={logo} alt="logo" className='homepage-logo-img' />
+          <div className='homepage-tagline'>Your all-in-one campus fashion marketplace</div>
+          
         </div>
+        <button>Explore</button>
       </div>
     </div>
   )
