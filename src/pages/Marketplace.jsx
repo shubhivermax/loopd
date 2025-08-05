@@ -1,7 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { supabase } from '../supabaseClient';
 
 const Marketplace = () => {
+
+  useEffect(() => {
+    async function testConnection() {
+      const { data, error } = await supabase
+        .from('listings')
+        .select('*')
+        .limit(1) // just fetch one row for testing
+
+      if (error) {
+        console.error('❌ Supabase connection failed:', error)
+      } else {
+        console.log('✅ Supabase connected successfully. Data:', data)
+      }
+    }
+
+    testConnection()
+  }, [])
+
+
+
   const navigate = useNavigate();
 
   const handleClick = () => {
