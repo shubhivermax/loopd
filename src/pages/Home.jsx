@@ -19,10 +19,10 @@ const Home = () => {
       <div className='homepage-content'>
         <div className='homepage-logo'>
           <img src={logo} alt="logo" className='homepage-logo-img' />
-          <div className='homepage-tagline'>Your all-in-one campus fashion marketplace</div>
+          <div className='homepage-tagline'>Your all-in-one fashion marketplace & thrift swap!</div>
           
         </div>
-        <button onClick={handleClick}>Explore</button>
+        <button className='explore' onClick={handleClick}>Explore</button>
       </div>
     </div>
   )

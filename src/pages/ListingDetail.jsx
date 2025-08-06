@@ -221,7 +221,53 @@ const ListingDetail = () => {
     </>
   )}
 </div>
-      
+<div className="comments-section">
+  <h3>Comments</h3>
+
+  {commentsError && <p style={{ color: 'red' }}>{commentsError}</p>}
+
+  <form className="comment-form" onSubmit={handleCommentSubmit}>
+    <input
+      type="email"
+      placeholder="Email (optional)"
+      value={newEmail}
+      onChange={(e) => setNewEmail(e.target.value)}
+    />
+    <input
+      type="text"
+      placeholder="Write a comment..."
+      value={newComment}
+      onChange={(e) => setNewComment(e.target.value)}
+      required
+    />
+    <button type="submit" disabled={posting}>
+      {posting ? 'Posting...' : 'Post Comment'}
+    </button>
+  </form>
+
+  <div className="comment-view">
+    {comments.length === 0 ? (
+      <p>No comments yet.</p>
+    ) : (
+      comments.map((comment) => (
+        <div key={comment.id} className="comment-item">
+          <p className="comment-content">💬 {comment.content}</p>
+          <p className="comment-meta">
+            {comment.author_email ? (
+              <span>{comment.author_email}</span>
+            ) : (
+              <span>Anonymous</span>
+            )}
+            {' • '}
+            {new Date(comment.created_at).toLocaleString()}
+          </p>
+        </div>
+      ))
+    )}
+  </div>
+</div>
+
+
     </div>
   )
 }

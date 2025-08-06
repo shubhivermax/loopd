@@ -14,7 +14,8 @@
 
 .nav-links {
   display: flex;
-  gap: 20px;
+  gap: 40px;
+  margin-right: 40px;
 }
 
 .nav-link {
@@ -26,7 +27,7 @@
 }
 
 .nav-link:hover {
-  color: #1abc9c;
+  color: #606C38;
 }
 
 .logo {
@@ -209,7 +210,7 @@
 /* Individual Card */
 .listing-card {
   background: #ffffff;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #283618;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   overflow: hidden;
@@ -447,7 +448,7 @@ form button[type="submit"]:hover {
 
 .how-it-works{
   color: #000;
-  font-family: Koulen;
+  font-family: Inter;
   font-size: 64px;
   font-style: normal;
   font-weight: 400;
@@ -460,10 +461,26 @@ form button[type="submit"]:hover {
   width: 395px;
 height: 197px;
 text-align: center;
-font-family: Koulen;
+font-family: Inter;
 font-size: 36px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
 margin-top:78px;
+}
+
+.explore{
+  width: 14%;
+  color: white;
+  background-color: #283618;
+}
+
+.explore:hover{
+  background-color: white;
+  color: black;
+  transform: scale(1.15);
+}
+
+.marketplace-title{
+  color: #283618;
 }
