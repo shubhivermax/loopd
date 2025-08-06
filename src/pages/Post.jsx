@@ -95,7 +95,7 @@ const PostItem = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="e.g., Graphic Tee"
-            style={{ width: '100%', padding: '8px', borderRadius: '6px', border: '1px solid #ccc' }}
+            style={{ width: '100%', padding: '8px',backgroundColor:'#543737', borderRadius: '6px', border: '1px solid #ccc' }}
           />
         </div>
 
@@ -106,7 +106,7 @@ const PostItem = () => {
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Add any item details..."
             rows={3}
-            style={{ width: '100%', padding: '8px', borderRadius: '6px', border: '1px solid #ccc' }}
+            style={{ width: '100%', padding: '8px', backgroundColor:'#543737', borderRadius: '6px', border: '1px solid #ccc' }}
           />
         </div>
 
@@ -117,7 +117,7 @@ const PostItem = () => {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
             placeholder="e.g., Tops, Shoes"
-            style={{ width: '100%', padding: '8px', borderRadius: '6px', border: '1px solid #ccc' }}
+            style={{ width: '100%', padding: '8px',backgroundColor:'#543737', borderRadius: '6px', border: '1px solid #ccc' }}
           />
         </div>
 
@@ -126,7 +126,7 @@ const PostItem = () => {
           <select
             value={condition}
             onChange={(e) => setCondition(e.target.value)}
-            style={{ width: '100%', padding: '8px', borderRadius: '6px', border: '1px solid #ccc' }}
+            style={{ width: '100%', backgroundColor:'#543737', padding: '8px', borderRadius: '6px', border: '1px solid #ccc' }}
           >
             <option value="New">New</option>
             <option value="Like New">Like New</option>
@@ -140,6 +140,7 @@ const PostItem = () => {
           <input
             type="file"
             accept="image/*"
+            
             onChange={(e) => setImageFile(e.target.files[0])}
           />
         </div>
@@ -149,7 +150,7 @@ const PostItem = () => {
           disabled={uploading}
           style={{
             padding: '12px 20px',
-            backgroundColor: '#3d8361',
+            backgroundColor: '#543737',
             color: '#fff',
             border: 'none',
             borderRadius: '8px',
