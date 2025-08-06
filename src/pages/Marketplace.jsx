@@ -105,7 +105,7 @@ const Marketplace = () => {
   return (
     <div className="marketplace-container">
       <header>
-        <h1 className="marketplace-title">Loopd Marketplace</h1>
+        <h1 className="marketplace-title">˖˚₊♱👜👢 Loopd Marketplace ݁ ˖˚♱👜👢</h1>
       </header>
 
       <div className="search-bar-container">

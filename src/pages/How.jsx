@@ -19,13 +19,14 @@ const How = () => {
             <div>3. ♻️ Keep the Loop going</div>
         </div>
         <div className='visit'>
-          <button onClick={handleClick}>Visit the Marketplace</button>
+          <button className='visbut' onClick={handleClick}>Visit the Marketplace</button>
 
         </div>
 
-        <div className='blurb'>
-          blurb
-        </div>
+        <p className="blurb-text">
+  Every item bought secondhand is one less added to landfills. Loopd is your stylish step toward sustainable fashion — rewear, resell, and reduce waste, one outfit at a time.
+</p>
+
 
 
     </div>

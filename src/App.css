@@ -448,7 +448,7 @@ form button[type="submit"]:hover {
 
 .how-it-works{
   color: #000;
-  font-family: Inter;
+  font-family: Playfair Display;
   font-size: 64px;
   font-style: normal;
   font-weight: 400;
@@ -461,18 +461,18 @@ form button[type="submit"]:hover {
   width: 395px;
 height: 197px;
 text-align: center;
-font-family: Inter;
+font-family: Playfair Display;
 font-size: 36px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
-margin-top:78px;
+margin-top:68px;
 }
 
 .explore{
   width: 14%;
   color: white;
-  background-color: #283618;
+  background-color: #543737;
 }
 
 .explore:hover{
@@ -483,4 +483,18 @@ margin-top:78px;
 
 .marketplace-title{
   color: #283618;
+}
+
+.visbut {
+  box-shadow: 0 0 10px rgba(72, 121, 84, 0.5);
+}
+
+.visit {
+  margin-bottom: 30px;
+}
+
+.blurb-text{
+  max-width: 35%;
+  text-align: center;
+  font-family: Playfair Display;
 }
