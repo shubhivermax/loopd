@@ -109,6 +109,7 @@ const Marketplace = () => {
       </header>
 
       <div className="search-bar-container">
+        <div className="searchtitle">Search by title   </div>
         <input
         type="text"
         placeholder="Search listings..."

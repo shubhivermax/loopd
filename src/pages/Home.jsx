@@ -8,7 +8,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('./Market')
+    navigate('/Market')
   }
   return (
     <div className='homepage'>
