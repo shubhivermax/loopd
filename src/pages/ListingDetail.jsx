@@ -1,6 +1,7 @@
 import { useLocation, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { supabase } from '../supabaseClient'
+import { useNavigate } from 'react-router-dom'
 
 const ListingDetail = () => {
   const { id } = useParams()
@@ -8,6 +9,7 @@ const ListingDetail = () => {
   const [listing, setListing] = useState(location.state?.listing || null)
   const [loading, setLoading] = useState(!listing)
   const [error, setError] = useState(null)
+  const navigate = useNavigate()
 
   // Comment state
   const [comments, setComments] = useState([])
@@ -90,9 +92,33 @@ const ListingDetail = () => {
   if (error) return <p>{error}</p>
   if (!listing) return <p>Listing not found.</p>
 
+  const handleDelete = async () => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this listing?");
+    if (!confirmDelete) return;
+  
+    const { error } = await supabase
+      .from('listings')
+      .delete()
+      .eq('id', listing.id);
+  
+    if (error) {
+      console.error('❌ Delete failed:', error);
+      alert('Delete failed. Please try again.');
+    } else {
+      alert('Listing deleted!');
+      // navigate back to the marketplace
+      
+      navigate('/Market')
+
+    }
+  };
+
   return (
     <div>
+      
+
       <div className="detailwrapper">
+        <button onClick={handleDelete}>Delete Listing</button>
         <h1>{listing.title}</h1>
         {listing.image_url && (
           <img
