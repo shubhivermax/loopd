@@ -147,3 +147,171 @@
   position: relative;
   min-height: 100vh;
 }
+
+.marketplace-container {
+  padding: 24px;
+  background-color: #f9f9f9;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.marketplace-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: #2f2f2f;
+  text-align: center;
+}
+
+/* Flex layout: Sidebar + Listings */
+.layout {
+  display: flex;
+  gap: 24px;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 200px;
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  height: fit-content;
+}
+
+.sidebar button {
+  width: 100%;
+  padding: 10px;
+  background-color: #3d8361;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.sidebar button:hover {
+  background-color: #316a50;
+}
+
+/* Listings */
+.listings-area {
+  flex-grow: 1;
+}
+
+.listings-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+/* Individual Card */
+.listing-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.listing-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Image */
+.image-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-color: #eee;
+  overflow: hidden;
+}
+
+.listing-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Info */
+.listing-info {
+  padding: 12px 14px;
+}
+
+.listing-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 0 4px 0;
+}
+
+.listing-price {
+  color: #1f4e79;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.listing-meta {
+  font-size: 13px;
+  color: #555;
+  margin: 0 0 4px 0;
+}
+
+.listing-condition {
+  font-size: 12px;
+  color: #888;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Feedback Text */
+.error {
+  color: red;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.but1{
+  margin-bottom: 5px;
+}
+.filters {
+  padding-bottom: 30px;
+}
+
+/* Upvote button styles */
+.upvote-section {
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.upvote-btn {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.upvote-btn:hover {
+  background: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.upvote-btn:active {
+  transform: scale(0.95);
+}
+
+/* Active filter button styles */
+.but1.active {
+  background-color: #1abc9c;
+  color: white;
+  font-weight: bold;
+}
+
+.but1.active:hover {
+  background-color: #16a085;
+}

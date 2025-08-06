@@ -6,13 +6,14 @@ const Marketplace = () => {
   const [listings, setListings] = useState([])
   const [loading, setLoading] = useState(true)
   const [errorMsg, setErrorMsg] = useState(null)
+  const [sortOrder, setSortOrder] = useState('newest')
   const navigate = useNavigate()
 
   useEffect(() => {
     fetchListings()
     // Debug: Check what tables are available
     debugTables()
-  }, [])
+  }, [sortOrder])
 
   async function debugTables() {
     console.log('🔍 Checking available tables...')
@@ -27,32 +28,76 @@ const Marketplace = () => {
 
   async function fetchListings() {
     setLoading(true)
-    console.log('🔍 Fetching listings from Supabase...')
-    
-    // First, let's try a simple query without ordering
+    const ascending = sortOrder === 'oldest'
     const { data, error } = await supabase
       .from('listings')
       .select('*')
-
-    console.log('📊 Supabase response:', { data, error })
+      .order('created_at', { ascending: ascending })
 
     if (error) {
       console.error('❌ Error fetching listings:', error)
       setErrorMsg('Failed to load listings.')
+      setListings([])
     } else {
-      console.log('✅ Successfully fetched listings:', data)
-      console.log('📝 Number of listings found:', data?.length || 0)
       setListings(data || [])
+      setErrorMsg(null)
     }
     setLoading(false)
   }
 
+  async function fetchPopularListings() {
+    setLoading(true)
+    const { data, error } = await supabase
+      .from('listings')
+      .select('*')
+      .order('upvotes', { ascending: false })
+
+    if (error) {
+      console.error('❌ Error fetching listings:', error)
+      setErrorMsg('Failed to load listings.')
+      setListings([])
+    } else {
+      setListings(data || [])
+      setErrorMsg(null)
+    }
+    setLoading(false)
+  }
+
+  const handleUpvote = async (listingId, currentUpvotes) => {
+    const newUpvotes = (currentUpvotes || 0) + 1
+    
+    const { error } = await supabase
+      .from('listings')
+      .update({ upvotes: newUpvotes })
+      .eq('id', listingId)
+
+    if (error) {
+      console.error('❌ Error updating upvotes:', error)
+    } else {
+      // Refresh the listings to show updated upvotes
+      if (sortOrder === 'popular') {
+        fetchPopularListings()
+      } else {
+        fetchListings()
+      }
+    }
+  }
+
   const goToPostPage = () => {
-    navigate('/post') // adjust if your route is different
+    navigate('/post')
   }
 
   const goToDetail = (id) => {
-    navigate(`/listing/${id}`) // implement detail route later
+    navigate(`/listing/${id}`)
+  }
+
+  const handleSortChange = (order) => {
+    setSortOrder(order)
+    if (order === 'popular') {
+      fetchPopularListings()
+    } else {
+      fetchListings()
+    }
   }
 
   return (
@@ -63,6 +108,29 @@ const Marketplace = () => {
 
       <div className="layout">
         <aside className="sidebar">
+          Order By
+          <div className='filters'>
+            <button 
+              className={`but1 ${sortOrder === 'oldest' ? 'active' : ''}`}
+              onClick={() => handleSortChange('oldest')}
+            >
+              Oldest
+            </button>
+            <button 
+              className={`but1 ${sortOrder === 'newest' ? 'active' : ''}`}
+              onClick={() => handleSortChange('newest')}
+            >
+              Newest
+            </button>
+            <button 
+              className={`but1 ${sortOrder === 'popular' ? 'active' : ''}`}
+              onClick={() => handleSortChange('popular')}
+            >
+              Popular
+            </button>
+          </div>
+
+          Sell
           <button onClick={goToPostPage}>Post an Item</button>
           {/* future: filter UI */}
         </aside>
@@ -95,6 +163,17 @@ const Marketplace = () => {
                   <p className="listing-contact">
                     <small>Contact: {item.contact || 'N/A'}</small>
                   </p>
+                  <div className="upvote-section">
+                    <button
+                      className="upvote-btn"
+                      onClick={(e) => {
+                        e.stopPropagation() // Prevent card click
+                        handleUpvote(item.id, item.upvotes)
+                      }}
+                    >
+                      👍 {item.upvotes || 0}
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
