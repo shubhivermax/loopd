@@ -146,6 +146,7 @@ const ListingDetail = () => {
         }
       }}
     >
+      <div>Title</div>
       <input
         type="text"
         value={editedListing.title}
@@ -154,6 +155,8 @@ const ListingDetail = () => {
         }
         placeholder="Title"
       />
+
+      <div>Category</div>
       <input
         type="text"
         value={editedListing.category}
@@ -162,6 +165,8 @@ const ListingDetail = () => {
         }
         placeholder="Category"
       />
+
+      <div>Condition</div>
       <input
         type="text"
         value={editedListing.condition}
@@ -170,6 +175,8 @@ const ListingDetail = () => {
         }
         placeholder="Condition"
       />
+
+      <div>Description</div>
       <textarea
         value={editedListing.description}
         onChange={(e) =>
@@ -177,6 +184,8 @@ const ListingDetail = () => {
         }
         placeholder="Description"
       />
+
+      <div>Contact</div>
       <input
         type="text"
         value={editedListing.contact}

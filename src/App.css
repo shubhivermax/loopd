@@ -341,3 +341,68 @@
   max-width: 800px;
   margin: 0 auto;
 }
+
+/* Container for the entire edit form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+  padding: 16px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+/* Input and textarea fields */
+form input,
+form textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border 0.2s ease;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+/* Submit button */
+form button[type="submit"] {
+  background-color: #4a90e2;
+  color: white;
+  padding: 10px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+form button[type="submit"]:hover {
+  background-color: #3a78c2;
+}
+
+/* Optional: Style the buttons container */
+.buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.buttons button {
+  background-color: #eee;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  background-color: #ddd;
+}
