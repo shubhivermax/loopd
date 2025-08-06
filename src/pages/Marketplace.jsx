@@ -149,7 +149,12 @@ const Marketplace = () => {
         </aside>
 
         <main className="listings-area">
-          {loading && <p>Loading listings...</p>}
+          {loading && (
+  <div className="loopd-spinner-container">
+    <div className="loopd-spinner"></div>
+    <p>Looping through listings...</p>
+  </div>
+)}
           {errorMsg && <p className="error">{errorMsg}</p>}
           {!loading && listings.length === 0 && <p>No listings yet. Be the first to post!</p>}
 
@@ -183,12 +188,7 @@ const Marketplace = () => {
   })}
 </p>
 
-                  <p className="listing-meta">{item.category || 'Uncategorized'}</p>
-                  <p className="listing-condition">{item.condition || ''}</p>
-                  <p className="listing-description">{item.description}</p>
-                  <p className="listing-contact">
-                    <small>Contact: {item.contact || 'N/A'}</small>
-                  </p>
+                  
                   <div className="upvote-section">
                     <button
                       className="upvote-btn"
@@ -231,4 +231,12 @@ export default Marketplace
 
     testConnection()
   }, [])
+
+
+  <p className="listing-meta">{item.category || 'Uncategorized'}</p>
+                  <p className="listing-condition">{item.condition || ''}</p>
+                  <p className="listing-description">{item.description}</p>
+                  <p className="listing-contact">
+                    <small>Contact: {item.contact || 'N/A'}</small>
+                  </p>
   */
