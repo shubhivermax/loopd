@@ -315,3 +315,19 @@
 .but1.active:hover {
   background-color: #16a085;
 }
+
+.detailwrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* optional */
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.detailwrapper img{
+  max-width: 50%;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}

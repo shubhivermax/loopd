@@ -87,8 +87,8 @@ const Marketplace = () => {
     navigate('/post')
   }
 
-  const goToDetail = (id) => {
-    navigate(`/listing/${id}`)
+  const goToDetail = (item) => {
+    navigate(`/listing/${item.id}`, { state: { listing: item } })
   }
 
   const handleSortChange = (order) => {
@@ -145,7 +145,7 @@ const Marketplace = () => {
               <div
                 key={item.id}
                 className="listing-card"
-                onClick={() => goToDetail(item.id)}
+                onClick={() => goToDetail(item)}
                 style={{ cursor: 'pointer' }}
               >
                 <div className="image-wrapper">
