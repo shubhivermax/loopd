@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import How from './pages/How';
 import Market from './pages/Marketplace';
 import Post from './pages/Post';
+import ListingDetail from './pages/ListingDetail'
 import './App.css';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/How" element={<How />} />
         <Route path="/Market" element={<Market />} />
         <Route path="/Post" element={<Post />} />
+        <Route path="/listing/:id" element={<ListingDetail />} />
         {/* Add more routes as needed */}
       </Routes>
     </div>
