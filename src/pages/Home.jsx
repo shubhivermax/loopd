@@ -2,8 +2,14 @@ import React from 'react'
 import logo from '../assets/loghome.png';
 import fashion1 from '../assets/fashion1.png';
 import fashion2 from '../assets/fashion2.png';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('./Market')
+  }
   return (
     <div className='homepage'>
       <div className='fashion-image-container'>
@@ -16,7 +22,7 @@ const Home = () => {
           <div className='homepage-tagline'>Your all-in-one campus fashion marketplace</div>
           
         </div>
-        <button>Explore</button>
+        <button onClick={handleClick}>Explore</button>
       </div>
     </div>
   )

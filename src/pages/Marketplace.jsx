@@ -37,7 +37,7 @@ const Marketplace = () => {
       .order('created_at', { ascending: ascending })
 
     if (error) {
-      console.error('❌ Error fetching listings:', error)
+      console.error(' Error fetching listings:', error)
       setErrorMsg('Failed to load listings.')
       setListings([])
     } else {
@@ -55,7 +55,7 @@ const Marketplace = () => {
       .order('upvotes', { ascending: false })
 
     if (error) {
-      console.error('❌ Error fetching listings:', error)
+      console.error(' Error fetching listings:', error)
       setErrorMsg('Failed to load listings.')
       setListings([])
     } else {
@@ -74,7 +74,7 @@ const Marketplace = () => {
       .eq('id', listingId)
 
     if (error) {
-      console.error('❌ Error updating upvotes:', error)
+      console.error(' Error updating upvotes:', error)
     } else {
       // Refresh the listings to show updated upvotes
       if (sortOrder === 'popular') {
@@ -109,14 +109,14 @@ const Marketplace = () => {
       </header>
 
       <div className="search-bar-container">
-  <input
-    type="text"
-    placeholder="Search listings..."
-    value={searchQuery}
-    onChange={(e) => setSearchQuery(e.target.value)}
-    className="search-input"
-  />
-</div>
+        <input
+        type="text"
+        placeholder="Search listings..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        className="search-input"
+         />
+      </div>
 
       <div className="layout">
         <aside className="sidebar">
@@ -175,6 +175,13 @@ const Marketplace = () => {
                 </div>
                 <div className="listing-info">
                   <h2 className="listing-title">{item.title || 'Untitled'}</h2>
+                  <p className='listing-date'>
+  {new Date(item.created_at).toLocaleString('en-US', {
+    dateStyle: 'short',
+    timeStyle: 'short'
+  })}
+</p>
+
                   <p className="listing-meta">{item.category || 'Uncategorized'}</p>
                   <p className="listing-condition">{item.condition || ''}</p>
                   <p className="listing-description">{item.description}</p>
