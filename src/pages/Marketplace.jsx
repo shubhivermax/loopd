@@ -9,6 +9,8 @@ const Marketplace = () => {
   const [sortOrder, setSortOrder] = useState('newest')
   const navigate = useNavigate()
 
+  const [searchQuery, setSearchQuery] = useState('');
+
   useEffect(() => {
     fetchListings()
     // Debug: Check what tables are available
@@ -106,6 +108,16 @@ const Marketplace = () => {
         <h1 className="marketplace-title">Loopd Marketplace</h1>
       </header>
 
+      <div className="search-bar-container">
+  <input
+    type="text"
+    placeholder="Search listings..."
+    value={searchQuery}
+    onChange={(e) => setSearchQuery(e.target.value)}
+    className="search-input"
+  />
+</div>
+
       <div className="layout">
         <aside className="sidebar">
           Order By
@@ -141,7 +153,13 @@ const Marketplace = () => {
           {!loading && listings.length === 0 && <p>No listings yet. Be the first to post!</p>}
 
           <div className="listings-grid">
-            {listings.map((item) => (
+            {listings
+  .filter((item) =>
+    item.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    item.category?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    item.description?.toLowerCase().includes(searchQuery.toLowerCase())
+  )
+  .map((item) => (
               <div
                 key={item.id}
                 className="listing-card"
