@@ -9,6 +9,8 @@ const ListingDetail = () => {
   const [listing, setListing] = useState(location.state?.listing || null)
   const [loading, setLoading] = useState(!listing)
   const [error, setError] = useState(null)
+  const [isEditing, setIsEditing] = useState(false)
+  const [editedListing, setEditedListing] = useState({ ...listing })
   const navigate = useNavigate()
 
   // Comment state
@@ -115,75 +117,102 @@ const ListingDetail = () => {
 
   return (
     <div>
+    <div className="detailwrapper">
+      <div className='buttons'>Edit Delete
+      <button onClick={() => setIsEditing(!isEditing)}>
+      {isEditing ? 'Cancel Edit' : 'Edit Listing'}
+      </button>
+      <button onClick={handleDelete}>Delete Listing</button>
+
+
+      </div>
+
+  {isEditing ? (
+    <form
+      onSubmit={async (e) => {
+        e.preventDefault()
+        const { error } = await supabase
+          .from('listings')
+          .update(editedListing)
+          .eq('id', listing.id)
+
+        if (error) {
+          console.error('Error updating listing:', error)
+          alert('Update failed.')
+        } else {
+          setListing(editedListing)
+          setIsEditing(false)
+          alert('Listing updated!')
+        }
+      }}
+    >
+      <input
+        type="text"
+        value={editedListing.title}
+        onChange={(e) =>
+          setEditedListing({ ...editedListing, title: e.target.value })
+        }
+        placeholder="Title"
+      />
+      <input
+        type="text"
+        value={editedListing.category}
+        onChange={(e) =>
+          setEditedListing({ ...editedListing, category: e.target.value })
+        }
+        placeholder="Category"
+      />
+      <input
+        type="text"
+        value={editedListing.condition}
+        onChange={(e) =>
+          setEditedListing({ ...editedListing, condition: e.target.value })
+        }
+        placeholder="Condition"
+      />
+      <textarea
+        value={editedListing.description}
+        onChange={(e) =>
+          setEditedListing({ ...editedListing, description: e.target.value })
+        }
+        placeholder="Description"
+      />
+      <input
+        type="text"
+        value={editedListing.contact}
+        onChange={(e) =>
+          setEditedListing({ ...editedListing, contact: e.target.value })
+        }
+        placeholder="Contact"
+      />
+      <button type="submit">Save Changes</button>
+    </form>
+  ) : (
+    <>
+      <h1>{listing.title}</h1>
+      {listing.image_url && (
+        <img src={listing.image_url} alt={listing.title} />
+      )}
+      <p>
+        <strong>Category:</strong> {listing.category}
+      </p>
+      <p>
+        <strong>Condition:</strong> {listing.condition}
+      </p>
+      <p>
+        <strong>Description:</strong>{' '}
+        {listing.description || 'No description provided.'}
+      </p>
+      <p>
+        <strong>Contact:</strong> {listing.contact || 'Not specified'}
+      </p>
+      <p>
+        <strong>Upvotes:</strong> {listing.upvotes || 0}
+      </p>
+    </>
+  )}
+</div>
       
-
-      <div className="detailwrapper">
-        <button onClick={handleDelete}>Delete Listing</button>
-        <h1>{listing.title}</h1>
-        {listing.image_url && (
-          <img
-            src={listing.image_url}
-            alt={listing.title}
-          />
-        )}
-        <p>
-          <strong>Category:</strong> {listing.category}
-        </p>
-        <p>
-          <strong>Condition:</strong> {listing.condition}
-        </p>
-        <p>
-          <strong>Description:</strong>{' '}
-          {listing.description || 'No description provided.'}
-        </p>
-        <p>
-          <strong>Contact:</strong> {listing.contact || 'Not specified'}
-        </p>
-        <p>
-          <strong>Upvotes:</strong> {listing.upvotes || 0}
-        </p>
-      </div>
-
-      <div className="comments-section">
-        <div className="comment-form">
-          <div>Add a Comment</div>
-          <form onSubmit={handleCommentSubmit}>
-            <input
-              type="email"
-              placeholder="Email (optional)"
-              value={newEmail}
-              onChange={(e) => setNewEmail(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Your comment"
-              value={newComment}
-              onChange={(e) => setNewComment(e.target.value)}
-            />
-            <button type="submit" disabled={posting || !newComment.trim()}>
-              {posting ? 'Posting...' : 'Go'}
-            </button>
-          </form>
-          {commentsError && <p className="error">{commentsError}</p>}
-        </div>
-
-        <div className="comment-view">
-          {comments.length === 0 ? (
-            <p>No comments yet.</p>
-          ) : (
-            comments.map((c) => (
-              <div key={c.id} className="comment-card">
-                <p>
-                  <strong>{c.author_email || 'Anonymous'}:</strong> {c.content}
-                </p>
-                <p className="timestamp">
-                  {new Date(c.created_at).toLocaleString()}
-                </p>
-              </div>
-            ))
-          )}
-        </div>
-      </div>
     </div>
   )
 }
