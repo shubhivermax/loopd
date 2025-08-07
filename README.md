@@ -1,5 +1,12 @@
 # React + Vite
-
+<div>
+    <a href="https://www.loom.com/share/43547f72f3aa47b28dd312e82b686fca">
+      <p>Fashion Marketplace and Thrift Swap App Demo - Watch Video</p>
+    </a>
+    <a href="https://www.loom.com/share/43547f72f3aa47b28dd312e82b686fca">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/43547f72f3aa47b28dd312e82b686fca-022163ede3fdd0b0-full-play.gif">
+    </a>
+  </div>
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
