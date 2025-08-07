@@ -1,5 +1,3 @@
-# Loop’d ♻️  
-### A Sustainable Fashion Marketplace & Thrift Swap Platform  
 
 <div>
   <a href="https://www.loom.com/share/43547f72f3aa47b28dd312e82b686fca">
@@ -11,42 +9,103 @@
 </div>
 
 ---
+# Web Development Final Project - *Loopd: Forum based Fashion Marketplace*
 
-## 🌿 Overview
+Submitted by: **Shubhi Verma**
 
-**Loop’d** is a full-stack web application that empowers users to buy, sell, or swap secondhand fashion pieces in a stylish, easy-to-navigate platform. Designed with sustainability in mind, it promotes mindful consumption and community-driven fashion.  
+This web app: **built with React Javascript, it serevs as a forum based fashion marketplace app where users can sell, swap, and upvote clothing items**
 
-Users can:  
-- Browse and post fashion items  
-- Add detailed descriptions and images  
-- Interact through a built-in comment feature  
-- Embrace circular fashion by swapping items with others  
+Time spent: **14** hours spent in total
 
----
+## Required Features
 
-## 🛠 Tech Stack
+The following **required** functionality is completed:
 
-- **Frontend:** React, Vite, JSX, Tailwind CSS  
-- **Backend:** Supabase (PostgreSQL + Auth + Storage)  
-- **Deployment:** Netlify  
-- **Tools:** Loom (demo), GitHub, VS Code  
 
----
+- [x] **Web app includes a create form that allows the user to create posts**
+  - Form requires users to add a post title
+  - Forms should have the *option* for users to add: 
+    - additional textual content
+    - an image added as an external image URL
+- [x] **Web app includes a home feed displaying previously created posts**
+  - Web app must include home feed displaying previously created posts
+  - By default, each post on the posts feed should show only the post's:
+    - creation time
+    - title 
+    - upvotes count
+  - Clicking on a post should direct the user to a new page for the selected post
+- [x] **Users can view posts in different ways**
+  - Users can sort posts by either:
+    -  creation time
+    -  upvotes count
+  - Users can search for posts by title
+- [x] **Users can interact with each post in different ways**
+  - The app includes a separate post page for each created post when clicked, where any additional information is shown, including:
+    - content
+    - image
+    - comments
+  - Users can leave comments underneath a post on the post page
+  - Each post includes an upvote button on the post page. 
+    - Each click increases the post's upvotes count by one
+    - Users can upvote any post any number of times
 
-## ✨ Features
-## ✨ Features
+- [x] **A post that a user previously created can be edited or deleted from its post pages**
+  - After a user creates a new post, they can go back and edit the post
+  - A previously created post can be deleted from its post page
 
-- 📝 **Post Creation Form** – Users can create posts with titles, text, and images (via URL or upload)  
-- 🗂 **Home Feed** – Displays all created posts showing title, time, and upvotes by default  
-- 🔁 **Post Sorting & Searching** – Users can sort posts by time or upvotes, and search by title  
-- 📄 **Individual Post Pages** – Clicking a post opens a page showing full content, image, and comments  
-- 👍 **Upvoting System** – Users can upvote posts multiple times to increase visibility  
-- ✏️ **Post Management** – Edit or delete posts after creation from their individual pages  
-- 🎨 **Customizable Interface** – Users can tweak interface elements like color scheme and feed content display  
-- 🎭 **Post Flags & Filters** – Users can label posts as “Question” or “Opinion” and filter accordingly  
-- 📷 **Local Image Upload** – Supports uploading images from the user’s own device  
-- 🎥 **Video Sharing** – Users can view and share web-based video content  
-- ⏳ **Loading Animation** – Displays while data is being fetched for a smoother experience  
----
+The following **optional** features are implemented:
 
+
+- [ ] Web app implements pseudo-authentication
+  - Users can only edit and delete posts or delete comments by entering the secret key, which is set by the user during post creation
+  - **or** upon launching the web app, the user is assigned a random user ID. It will be associated with all posts and comments that they make and displayed on them
+  - For both options, only the original user author of a post can update or delete it
+- [ ] Users can repost a previous post by referencing its post ID. On the post page of the new post
+  - Users can repost a previous post by referencing its post ID
+  - On the post page of the new post, the referenced post is displayed and linked, creating a thread
+- [x] Users can customize the interface
+  - e.g., selecting the color scheme or showing the content and image of each post on the home feed
+- [x] Users can add more characterics to their posts
+  - Users can share and view web videos
+  - Users can set flags such as "Question" or "Opinion" while creating a post
+  - Users can filter posts by flags on the home feed
+  - Users can upload images directly from their local machine as an image file
+- [x] Web app displays a loading animation whenever data is being fetched
+
+The following **additional** features are implemented:
+
+* [x] There is a home page and links to different pages on the navigation bar (made possible with react router dom)
+* [x] Supabase buckets are used to store user uploaded images directly from their computer
+
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+ //Shown at the top
+
+<!-- Replace this with whatever GIF tool you used! -->
+GIF created with Loom
+<!-- Recommended tools:
+[Kap](https://getkap.co/) for macOS
+[ScreenToGif](https://www.screentogif.com/) for Windows
+[peek](https://github.com/phw/peek) for Linux. -->
+
+## Notes
+
+
+
+## License
+
+    Copyright 2025 Shubhi Verma
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
 
