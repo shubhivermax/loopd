@@ -34,13 +34,19 @@ Users can:
 ---
 
 ## ✨ Features
+## ✨ Features
 
-- 🔍 **Fashion Marketplace Feed** – Browse user-uploaded items with filters  
-- 👚 **Upload Clothing** – Post thrift items for sale or swap  
-- 💬 **Comment System** – Allow users to engage under each listing  
-- 🌱 **Sustainability Focus** – Promotes reuse and ethical fashion habits  
-- 🧭 **Responsive Design** – Works beautifully across devices  
-
+- 📝 **Post Creation Form** – Users can create posts with titles, text, and images (via URL or upload)  
+- 🗂 **Home Feed** – Displays all created posts showing title, time, and upvotes by default  
+- 🔁 **Post Sorting & Searching** – Users can sort posts by time or upvotes, and search by title  
+- 📄 **Individual Post Pages** – Clicking a post opens a page showing full content, image, and comments  
+- 👍 **Upvoting System** – Users can upvote posts multiple times to increase visibility  
+- ✏️ **Post Management** – Edit or delete posts after creation from their individual pages  
+- 🎨 **Customizable Interface** – Users can tweak interface elements like color scheme and feed content display  
+- 🎭 **Post Flags & Filters** – Users can label posts as “Question” or “Opinion” and filter accordingly  
+- 📷 **Local Image Upload** – Supports uploading images from the user’s own device  
+- 🎥 **Video Sharing** – Users can view and share web-based video content  
+- ⏳ **Loading Animation** – Displays while data is being fetched for a smoother experience  
 ---
 
 
