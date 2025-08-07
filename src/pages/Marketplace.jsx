@@ -105,7 +105,7 @@ const Marketplace = () => {
   return (
     <div className="marketplace-container">
       <header>
-        <h1 className="marketplace-title">˖˚₊♱👜👢 Loopd Marketplace ݁ ˖˚♱👜👢</h1>
+        <h1 className="marketplace-title">˖˚₊♱👜👢 Loopd Marketplace˖˚♱👜👢</h1>
       </header>
 
       <div className="search-bar-container">
@@ -197,7 +197,7 @@ const Marketplace = () => {
                         handleUpvote(item.id, item.upvotes)
                       }}
                     >
-                      👍 {item.upvotes || 0}
+                      ₊‧ ୨୧ {item.upvotes || 0}
                     </button>
                   </div>
                 </div>
