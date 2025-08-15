@@ -13,14 +13,14 @@ const ListingDetail = () => {
   const [editedListing, setEditedListing] = useState({ ...listing })
   const navigate = useNavigate()
 
-  // Comment state
+  //comments
   const [comments, setComments] = useState([])
   const [newEmail, setNewEmail] = useState('')
   const [newComment, setNewComment] = useState('')
   const [posting, setPosting] = useState(false)
   const [commentsError, setCommentsError] = useState(null)
 
-  // Fetch listing if not passed through state
+  
   useEffect(() => {
     if (!listing) {
       ;(async () => {
