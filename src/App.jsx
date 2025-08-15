@@ -20,7 +20,7 @@ function App() {
         <Route path="/Market" element={<Market />} />
         <Route path="/Post" element={<Post />} />
         <Route path="/listing/:id" element={<ListingDetail />} />
-        {/* Add more routes as needed */}
+        
       </Routes>
     </div>
   );
