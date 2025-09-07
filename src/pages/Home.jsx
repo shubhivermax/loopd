@@ -10,6 +10,10 @@ const Home = () => {
   const handleClick = () => {
     navigate('/Market')
   }
+
+  const handleSignIn = () => {
+    navigate('/SignUp')
+  }
   return (
     <div className='homepage'>
       <div className='fashion-image-container'>
@@ -23,6 +27,7 @@ const Home = () => {
           
         </div>
         <button className='explore' onClick={handleClick}>Explore</button>
+        <button className='explore' onClick={handleSignIn}>Sign Up/Login</button>
       </div>
     </div>
   )

@@ -1,10 +1,41 @@
 import { supabase } from '../supabaseClient'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 import React from 'react'
 
 const SignUp = () => {
+  const navigate = useNavigate()
+  const [user, setUser] = useState(null)
 
+
+  useEffect(() => {
+    // Check session on mount
+    const fetchSession = async () => {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession()
+      setUser(session?.user || null)
+    }
+
+    fetchSession()
+
+    // Listen for auth changes (login/logout)
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user || null)
+    })
+
+    return () => listener.subscription.unsubscribe()
+  }, [])
+
+  useEffect(() => {
+    if (user) {
+      alert('You are already logged in.')
+      navigate('/Market')
+    }
+  }, [user])
+
+  
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [fullName, setFullName] = useState('')
@@ -84,6 +115,7 @@ const SignUp = () => {
         />
         <button type="submit">Sign Up</button>
       </form>
+      <button onClick={() => navigate('/login')}>Already have an account? Log In.</button>  
       {message && <p>{message}</p>}
     </div>
   )

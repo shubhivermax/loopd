@@ -12,6 +12,8 @@ import Post from './pages/Post';
 import ListingDetail from './pages/ListingDetail'
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
+import Welcome from './components/Welcome';
+
 import './App.css';
 
 function App() {
@@ -33,14 +35,16 @@ function App() {
 
   const handleSignOut = () => {
     supabase.auth.signOut()
+    alert('You have been logged out')
     Navigate('/')
-    alert('Logged out')
+    
   }
 
   return (
     <div>
       <Navbar />
-      <button onClick={handleSignOut}>Log Out</button>
+      <Welcome />
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />

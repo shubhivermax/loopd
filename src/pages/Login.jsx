@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import { supabase } from '../supabaseClient'
+import { useNavigate } from 'react-router-dom'
+
 
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [message, setMessage] = useState('')
+
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault()
@@ -42,7 +46,9 @@ const Login = () => {
     setMessage(`Welcome back, ${profileData.full_name}!`)
     console.log('Profile Data:', profileData)
 
-    // 5. Optional: redirect user to dashboard or homepage
+    // 5. REDIRECTING TO MARKETPLACE 
+    navigate('../Market')
+
     // e.g., navigate('/dashboard')
   }
 
