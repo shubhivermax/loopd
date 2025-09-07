@@ -3,7 +3,24 @@ import { useEffect, useState } from 'react'
 import { supabase } from '../supabaseClient'
 import { useNavigate } from 'react-router-dom'
 
+
 const ListingDetail = () => {
+  const [user, setUser] = useState(null);
+
+useEffect(() => {
+  const fetchUser = async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    setUser(session?.user || null);
+  };
+  fetchUser();
+
+  const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+    setUser(session?.user || null);
+  });
+
+  return () => listener.subscription.unsubscribe();
+}, []);
+
   const { id } = useParams()
   const location = useLocation()
   const [listing, setListing] = useState(location.state?.listing || null)
@@ -118,14 +135,16 @@ const ListingDetail = () => {
   return (
     <div>
     <div className="detailwrapper">
-      <div className='buttons'>Edit Delete
+    <div className='buttons'>
+  {user?.id === listing.user_id && (
+    <>
       <button onClick={() => setIsEditing(!isEditing)}>
-      {isEditing ? 'Cancel Edit' : 'Edit Listing'}
+        {isEditing ? 'Cancel Edit' : 'Edit Listing'}
       </button>
       <button onClick={handleDelete}>Delete Listing</button>
-
-
-      </div>
+    </>
+  )}
+</div>
 
   {isEditing ? (
     <form

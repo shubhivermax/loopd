@@ -4,6 +4,22 @@ import { supabase } from '../supabaseClient'
 
 
 const PostItem = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+  const fetchUser = async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    setUser(session?.user || null);
+  };
+  fetchUser();
+
+  const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+    setUser(session?.user || null);
+  });
+
+  return () => listener.subscription.unsubscribe();
+}, []);
+
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [category, setCategory] = useState('')
@@ -67,6 +83,7 @@ const PostItem = () => {
         condition,
         image_url,
         contact: '', // can update later with user auth
+        user_id: user?.id, 
       },
     ])
 
