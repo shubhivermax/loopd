@@ -36,7 +36,7 @@ const Welcome = () => {
   return (
     <div className='welcome-bar'>
         <div>Welcome back, {user.email.split('@')[0]}!</div>
-        <button onClick={handleSignOut}>Logout</button>
+        <button className='welc-button' onClick={handleSignOut}>Logout</button>
     </div>
   )
 }
