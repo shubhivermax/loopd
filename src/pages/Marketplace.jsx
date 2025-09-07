@@ -17,6 +17,21 @@ const Marketplace = () => {
     debugTables()
   }, [sortOrder])
 
+  async function requireAuth() {
+    const {
+      data: {session},
+
+    } = await supabase.auth.getSession()
+
+    if (!session) {
+      alert('You must be logged in to post an item on Loopd.')
+      navigate('/Login')
+
+    }
+    else {
+      goToPostPage()
+    }
+  }
   async function debugTables() {
     console.log('🔍 Checking available tables...')
     // This will help us see if the table exists
@@ -144,7 +159,7 @@ const Marketplace = () => {
           </div>
 
           Sell
-          <button onClick={goToPostPage}>Post an Item</button>
+          <button onClick={requireAuth}>Post an Item</button>
           {/* future: filter UI */}
         </aside>
 

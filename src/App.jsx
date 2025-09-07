@@ -31,10 +31,16 @@ function App() {
       })
   }, [])
 
+  const handleSignOut = () => {
+    supabase.auth.signOut()
+    Navigate('/')
+    alert('Logged out')
+  }
 
   return (
     <div>
       <Navbar />
+      <button onClick={handleSignOut}>Log Out</button>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
