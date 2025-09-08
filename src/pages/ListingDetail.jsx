@@ -21,6 +21,7 @@ useEffect(() => {
   return () => listener.subscription.unsubscribe();
 }, []);
 
+
   const { id } = useParams()
   const location = useLocation()
   const [listing, setListing] = useState(location.state?.listing || null)
@@ -37,14 +38,23 @@ useEffect(() => {
   const [posting, setPosting] = useState(false)
   const [commentsError, setCommentsError] = useState(null)
 
-  
+
+  // Fetch logged-in user
+
+  // Fetch listing (with Profiles join)
+
   useEffect(() => {
     if (!listing) {
       ;(async () => {
         setLoading(true)
         const { data, error } = await supabase
           .from('listings')
-          .select('*')
+          .select(`
+            *,
+            Profiles (
+              full_name
+            )
+          `)
           .eq('id', id)
           .single()
         if (error) {
@@ -57,6 +67,9 @@ useEffect(() => {
       })()
     }
   }, [id, listing])
+
+
+  
 
   useEffect(() => {
     if (listing) {
@@ -174,6 +187,10 @@ useEffect(() => {
         }
         placeholder="Title"
       />
+      
+      <p>
+      <strong>Posted by:</strong> {listing.Profiles?.full_name || 'Test'}
+    </p> {/* finish this later */}
 
       <div>Category</div>
       <input
