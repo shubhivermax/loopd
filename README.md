@@ -11,7 +11,7 @@
 ---
 # Loopd: Campus Fashion Marketplace & Forum
 
-Submitted by: **Shubhi Verma**
+Built by: **Shubhi Verma**
 
 This web app: **built with React, Javascript, PostgreSQL, Supabase Auth, and Google Cloud Vision. It serevs as a forum based fashion marketplace app where users can sell, swap, and upvote clothing items**
 
