@@ -406,13 +406,13 @@ form textarea {
 
 form input:focus,
 form textarea:focus {
-  border-color: #4a90e2;
+  border-color: #543737;
   outline: none;
 }
 
 /* Submit button */
 form button[type="submit"] {
-  background-color: #4a90e2;
+  background-color: #543737;
   color: white;
   padding: 10px 16px;
   font-size: 16px;
@@ -423,7 +423,8 @@ form button[type="submit"] {
 }
 
 form button[type="submit"]:hover {
-  background-color: #3a78c2;
+  background-color: white;
+  color: black;
 }
 
 /* Optional: Style the buttons container */
@@ -537,6 +538,20 @@ margin-top:68px;
 }
 
 .signup-form {
+  width: 30%;
+}
+
+.login-container{
+  display: flex;
+  flex-direction: column;    /* stack children vertically */
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center */
+  gap: 20px;                 /* spacing between title, form, and button */
+  padding: 20px;
+}
+
+.login-form {
+  margin-top:10%;
   width: 30%;
 }
 
