@@ -506,6 +506,7 @@ margin-top:68px;
   width: 14%;
   color: white;
   background-color: #543737;
+  margin-top: 20px;
 }
 
 .explore:hover{
@@ -524,6 +525,19 @@ margin-top:68px;
 
 .visit {
   margin-bottom: 30px;
+}
+
+.signup-container{
+  display: flex;
+  flex-direction: column;    /* stack children vertically */
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center */
+  gap: 20px;                 /* spacing between title, form, and button */
+  padding: 20px;
+}
+
+.signup-form {
+  width: 30%;
 }
 
 .blurb-text{
