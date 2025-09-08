@@ -9,7 +9,7 @@
 </div>
 
 ---
-# Web Development Final Project - *Loopd: Forum based Fashion Marketplace*
+# Loopd: Campus Fashion Marketplace & Forum*
 
 Submitted by: **Shubhi Verma**
 
