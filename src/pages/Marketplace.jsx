@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { supabase } from '../supabaseClient'
+import logo from '../assets/logo.png';
 
 const Marketplace = () => {
   const [listings, setListings] = useState([])
@@ -118,7 +119,11 @@ const Marketplace = () => {
   }
 
   return (
+    
     <div className="marketplace-container">
+      <div className='logo-container'>
+      <img src={logo} alt="Loopd Logo" className="logo" />
+      </div>
       <header>
         <h1 className="marketplace-title">˖˚₊♱👜👢 Loopd Marketplace˖˚♱👜👢</h1>
       </header>
