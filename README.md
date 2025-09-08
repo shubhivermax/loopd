@@ -9,7 +9,7 @@
 </div>
 
 ---
-# Loopd: Campus Fashion Marketplace & Forum*
+# Loopd: Campus Fashion Marketplace & Forum
 
 Submitted by: **Shubhi Verma**
 
